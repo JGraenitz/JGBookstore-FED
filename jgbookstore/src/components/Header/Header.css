@@ -1,0 +1,23 @@
+.header {
+  background-image: url(../../images/BuchladenGrau.png);
+  background-size: 25%;
+  background-position: center;
+  padding: 35px;
+}
+
+.header_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.header_logo-img {
+  padding: 40px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.83);
+  width: 15rem;
+  height: 15rem;
+}
+
