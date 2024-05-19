@@ -43,10 +43,12 @@ return (
       {books.map((book) => (
         <div className="books" key={book.id}>
           <div className="book-content">
-            <h2>{book.title}</h2>
-            <p>Author: {book.author}</p>
-            <p>Publisher: {book.publisher}</p>
-            <p>Price: {book.price}</p>
+            <div className="book-info">
+              <h2 className='book-title'>{book.title}</h2>
+              <p className='author'>Author: {book.author}</p>
+              <p className='publisher'>Publisher: {book.publisher}</p>
+              <p className='price'>Price: {book.price}</p>
+            </div>
               {book.cover ? (
                 <img
                   className='cover'
@@ -56,7 +58,7 @@ return (
               ) : (
                 <p>Kein Bild vorhanden!</p>
               )}
-            <p>Counter: {counters[book.isbn] || 0}</p>
+            <p className='counter'>Counter: {counters[book.isbn] || 0}</p>
             <button onClick={() => handleLike(book.isbn)}>Like</button>
           </div>
         </div>
