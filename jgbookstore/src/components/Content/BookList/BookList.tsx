@@ -10,6 +10,7 @@ import LoadingPage from '../../LoadingPage/LoadingPage';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import likebutton from '../../../images/LikeButton.png'
 
 
 const useQuery = () => {
@@ -90,8 +91,10 @@ return (
               ) : (
                 <p>Kein Bild vorhanden!</p>
               )}
-
-            <p className='counter'>{counters[book.isbn] || 0}</p>
+            <div className='likeContainer'>
+              <p className='counter'>{counters[book.isbn] || 0}</p>
+              <img className='likeImage' src={likebutton} alt='LikeButton'/>
+            </div>
             <div className='buttons'> 
               <div className='counterButton'>
                 <button onClick={() => handleLike(book.isbn)}>Like</button>
