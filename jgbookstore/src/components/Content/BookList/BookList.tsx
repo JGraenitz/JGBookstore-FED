@@ -73,7 +73,7 @@ return (
 
     <div className="bookcontent" >
       {books.map((book) => (
-        <div className="books" key={book.id}>
+        <div className="books" key={book.isbn}>
           <div className="book-content">
             <div className="book-info">
               <h2 className='book-title'>{book.title}</h2>
@@ -99,7 +99,7 @@ return (
               <div className='detailsButton'>
                 <button onClick={() => navigate(`/bookdetails/${book.isbn}`)}>Details</button>
               </div> 
-              <div className='deleteButton'>
+              <div className='warenkorbButton'>
                 <button>Warenkorb</button>
               </div> 
             </div>

@@ -14,8 +14,59 @@
     height: auto;
 }
 
-.buttons {
-    padding-bottom: 50px;
+.detailsButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 30px;
+}
+
+.detailsButtons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.detailsButtons button:hover {
+    background-color: #0056b3;
+}
+
+.detailsButtons button:nth-child(2) {
+    background-color: #6c757d;
+}
+
+.detailsButtons button:nth-child(2):hover {
+    background-color: #5a6268;
+}
+
+.deleteBookButton button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #b63524;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.deleteBookButton button:hover {
+    background-color: #7b3c1d;
+}
+
+.deleteBookButton button:nth-child(2) {
+    background-color: #7d726c;
+}
+
+.deleteBookButton button:nth-child(2):hover {
+    background-color: #685d5a;
 }
 
 .bookCover {

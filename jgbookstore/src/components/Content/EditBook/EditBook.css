@@ -1,0 +1,76 @@
+.editBook {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.editBook h2 {
+    text-align: center;
+    color: #333;
+}
+
+.editBook form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.editBookText div {
+    display: flex;
+    flex-direction: column;
+}
+
+.editBookText label {
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+.textInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.textInput:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.editBookText textarea.textInput {
+    width: 578px;
+    resize: vertical;
+}
+
+.editBooksButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.editBooksButtons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.editBooksButtons button:hover {
+    background-color: #0056b3;
+}
+
+.editBooksButtons button:nth-child(2) {
+    background-color: #6c757d;
+}
+
+.editBooksButtons button:nth-child(2):hover {
+    background-color: #5a6268;
+}

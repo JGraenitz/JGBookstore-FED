@@ -51,15 +51,16 @@ const BookDetails = () => {
                 </div>
                 <div className='bookTextInfos'>
                     <h1>{book?.title}</h1>
-                    <p>{book?.author}</p>
+                    <p>{book?.subtitle}</p>
                     <p>{book?.isbn}</p>
                     <p>{book?.abstract}</p>
                     <p>{book?.numPages}</p>
+                    <p>{book?.author}</p>
+                    <p>{book?.publisher}</p>
                     <p>{book?.price}</p>
-                    <p>{book?.userId}</p>
                 </div>
             </div>
-            <div className='buttons'>
+            <div className='detailsButtons'>
                 <div className='editBookButton'>
                     <button onClick={() => navigate(`/editbook/${book?.isbn}`)}>Edit Book</button>
                 </div>
