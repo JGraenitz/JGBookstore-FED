@@ -1,0 +1,28 @@
+.bookDetails {
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.bookDetailsCover {
+    width: 30vw;
+    height: auto;
+}
+
+.buttons {
+    padding-bottom: 50px;
+}
+
+.bookCover {
+    width: 30vw;
+    height: auto;
+}
+
+.noImageText {
+    padding-left: 150px;
+}

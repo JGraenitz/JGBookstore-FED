@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Content from './components/Content/Content';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Navigation from './components/Navigation/Navigation';
+import Content from './components/Content/Content';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 
 
 
@@ -14,15 +16,15 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-
-    <Navigation onComponentChange={function (component: String): void {
-      throw new Error('Function not implemented.');
-      } } 
-    />
-    <Header />
-    <Content />
-    <Footer />
-
+    <Router>  
+      <Navigation onComponentChange={function (component: String): void {
+        throw new Error('Function not implemented.');
+        } } 
+      />
+      <Header/>
+      <Content/>
+      <Footer/>
+    </Router>
   </React.StrictMode>
 );
 

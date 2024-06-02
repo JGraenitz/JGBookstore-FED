@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -6,19 +7,19 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer__content">
         <p className="footer__text">
-          &copy; {new Date().getFullYear()} JGBookstore. Alle Rechte vorbehalten.
+          &copy; {new Date().getFullYear()} JGBookstore. All rights reserved.
         </p>
         <nav className="footer__nav">
           <ul className="footer__nav-list">
             <li className="footer__nav-item">
-              <a href="#" className="footer__nav-link">
-                Impressum
-              </a>
+              <Link to="/about" className="footer__nav-link">
+                Imprint
+              </Link>
             </li>
             <li className="footer__nav-item">
-              <a href="#" className="footer__nav-link">
-                Datenschutz
-              </a>
+              <Link to="/" className="footer__nav-link">
+                Privacy
+              </Link>
             </li>
           </ul>
         </nav>

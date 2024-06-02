@@ -1,6 +1,9 @@
 import React from 'react';
 import './Navigation.css';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logoWarenkorb from '../../images/Warenkorb.png';
+
 
 type onComponentChange = (component:String) => void;
 
@@ -9,9 +12,7 @@ interface NavigationProps {
 }
 
 const Navigation = ({ onComponentChange } : NavigationProps) => {
-  const handleButtonClick = (component:String) => {
-    onComponentChange(component);
-  };
+  
   
 const openHamMenu = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 
@@ -24,13 +25,14 @@ const openHamMenu = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     offScreenMenuElement.classList.toggle('active');
 };
 
+
+const navigate = useNavigate();
+
   return (
     <div className="nav">
       <div className="off-screen-menu">
         <ul>
-          <li>home</li>
-          <li>about</li>
-          <li>contact</li>
+          <Link to="/about">About</Link>
         </ul>
       </div>  
     <nav className="navigation">
@@ -43,10 +45,13 @@ const openHamMenu = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
           </div>
         </div>
         <div className='navigation_item'>
-            <button className="navigation_button" onClick={() => handleButtonClick('Content')}>Alle Bücher</button>
+            <button className="navigation_button" onClick={() => navigate('/')} >All Books</button>
         </div>
         <div className='navigation_item'>
-          <button className="navigation_button" onClick={() => handleButtonClick('Content2')}>Bücher kleiner 5$</button>
+          <button className="navigation_button" onClick={() => navigate('/add-book')}>Add New Book</button>
+        </div>
+        <div className='navigation_item'>
+          <button className="navigation_button" onClick={() => navigate('/about')} >About Us</button>
         </div>
       </ul>
     </nav>

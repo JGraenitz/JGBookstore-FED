@@ -8,7 +8,7 @@ const baseURL: string = 'http://localhost:4730';
 // Function to request all books
 export const reqAllBooks = async (): Promise<Book[]> => {
   try {
-    const response = await fetch(`${baseURL}/books`);
+    const response = await fetch(`${baseURL}/books?_limit=10`);
     const data = await response.json();
     return data;
   } catch (error) {
