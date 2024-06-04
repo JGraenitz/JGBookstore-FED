@@ -11,21 +11,21 @@ const EditBook: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const { isbn } = useParams<{isbn: string}>();
+  const { id } = useParams<{id: string}>();
 
   const [book, setBook] = useState<Book>();
 
   useEffect(() => {
       const fetchBookByIsbn = async () => {
           try {
-              const fetchedBookByISBN = await API.reqBookByISBN(isbn as string)
+              const fetchedBookByISBN = await API.reqBookByID(id as string)
               setBook(fetchedBookByISBN);
           } catch (err){
               console.log(err)
           }           
       }
       fetchBookByIsbn();
-  }, [isbn])
+  }, [id])
 
   const [message, setMessage] = useState<string | null>(null);
   
@@ -39,7 +39,7 @@ const EditBook: React.FC = () => {
 
   const deleteBook = async () => {
     try {
-        const fetchedBookByISBN = await API.deleteABook(isbn as string)
+        const fetchedBookByISBN = await API.deleteABook(id as string)
     } catch (err){
         console.log(err)
     }
@@ -48,16 +48,16 @@ const EditBook: React.FC = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      const newBook = await API.updateExistingBook(book as Book, isbn as string);    //Die update Funktion updated nicht die ID und damit geht das mit dem Finden nichtmehr ... idk warum
+      const newBook = await API.updateExistingBook(book as Book, id as string);    //Die update Funktion updated nicht die ID und damit geht das mit dem Finden nichtmehr ... idk warum
 
     
       //deleteBook()
       //const newBook = await API.postNewBook(book as Book)    //deleting and adding new Book
 
 
-      setMessage(`Book added successfully with ID: ${newBook.isbn}`);
+      setMessage(`Book added successfully with ID: ${newBook.id}`);
       setBook(newBook)
-      navigate(`/bookdetails/${newBook.isbn}`)
+      navigate(`/bookdetails/${newBook.id}`)
     } catch (error) {
       setMessage('Error adding book');
     }
@@ -146,16 +146,6 @@ const EditBook: React.FC = () => {
                     id="price"
                     name="price"
                     value={book?.price || ''}
-                    onChange={handleChange}
-                />
-            </div>
-            <div>
-                <label htmlFor="cover">Cover URL:</label>
-                <input className='textInput'
-                    type="text"
-                    id="cover"
-                    name="cover"
-                    value={book?.cover || ''}
                     onChange={handleChange}
                 />
             </div>

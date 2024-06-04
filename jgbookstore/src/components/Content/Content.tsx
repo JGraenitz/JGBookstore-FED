@@ -14,8 +14,8 @@ const Content = () => {
             <Route path="/" element={<BookList/>}/>
             <Route path="/add-book" element={<AddBook/>}/>
             <Route path="/about" element={<About/>}/>
-            <Route path="/bookdetails/:isbn" element={<BookDetails/>}/>
-            <Route path="/editbook/:isbn" element={<EditBook/>}/>
+            <Route path="/bookdetails/:id" element={<BookDetails/>}/>
+            <Route path="/editbook/:id" element={<EditBook/>}/>
         </Routes>
     );
 };

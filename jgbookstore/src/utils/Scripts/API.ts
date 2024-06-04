@@ -17,10 +17,10 @@ export const reqAllBooks = async (): Promise<Book[]> => {
   }
 };
 
-// Function to request one book by ISBN
-export const reqBookByISBN = async (isbn: string): Promise<Book> => {
+// Function to request one book by ID
+export const reqBookByID = async (id: string): Promise<Book> => {
   try {
-    const response = await fetch(`${baseURL}/books/${isbn}`);
+    const response = await fetch(`${baseURL}/books/${id}`);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -48,9 +48,9 @@ export const postNewBook = async (book: Book): Promise<Book> => {
 };
 
 // Function to update an existing book
-export const updateExistingBook = async (book: Book, isbn: string): Promise<Book> => {
+export const updateExistingBook = async (book: Book, id: string): Promise<Book> => {
   try {
-    const response = await fetch(`${baseURL}/books/${isbn}`, {
+    const response = await fetch(`${baseURL}/books/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -66,9 +66,9 @@ export const updateExistingBook = async (book: Book, isbn: string): Promise<Book
 };
 
 // Function to delete a book
-export const deleteABook = async (isbn: string): Promise<string> => {
+export const deleteABook = async (id: string): Promise<string> => {
   try {
-    const response = await fetch(`${baseURL}/books/${isbn}`, {
+    const response = await fetch(`${baseURL}/books/${id}`, {
       method: 'DELETE',
     });
     if (response.ok) {

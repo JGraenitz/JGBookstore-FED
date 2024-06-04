@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-route
 
 const BookDetails = () => {
 
-    const { isbn } = useParams<{isbn: string}>();
+    const { id } = useParams<{id: string}>();
 
     const [book, setBook] = useState<Book>();
 
@@ -21,18 +21,18 @@ const BookDetails = () => {
     useEffect(() => {
         const fetchBookByIsbn = async () => {
             try {
-                const fetchedBookByISBN = await API.reqBookByISBN(isbn as string)
-                setBook(fetchedBookByISBN);
+                const fetchedBookByID = await API.reqBookByID(id as string)
+                setBook(fetchedBookByID);
             } catch (err){
                 console.log(err)
             }           
         }
         fetchBookByIsbn();
-    }, [isbn])
+    }, [id])
 
     const deleteBook = async () => {
         try {
-            const fetchedBookByISBN = await API.deleteABook(isbn as string)
+            const fetchedBookByID = await API.deleteABook(id as string)
             navigate('/')
         } catch (err){
             console.log(err)
@@ -62,7 +62,7 @@ const BookDetails = () => {
             </div>
             <div className='detailsButtons'>
                 <div className='editBookButton'>
-                    <button onClick={() => navigate(`/editbook/${book?.isbn}`)}>Edit Book</button>
+                    <button onClick={() => navigate(`/editbook/${book?.id}`)}>Edit Book</button>
                 </div>
                 <div className='deleteBookButton'>
                     <button onClick={deleteBook}>Delete Book</button>

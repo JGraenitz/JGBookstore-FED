@@ -12,6 +12,7 @@ const AddBook: React.FC = () => {
   const navigate = useNavigate();
 
   const [book, setBook] = useState<Book>({
+    id: '',
     title: '',
     isbn: '',
   });
@@ -30,8 +31,9 @@ const AddBook: React.FC = () => {
     e.preventDefault();
     try {
       const newBook = await API.postNewBook(book);
-      setMessage(`Book added successfully with ID: ${newBook.isbn}`);
+      setMessage(`Book added successfully with ID: ${newBook.id}`);
       setBook({
+        id: '',
         title: '',
         isbn: '',
       });

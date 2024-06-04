@@ -41,7 +41,7 @@ useEffect(() => {
   const initialCounter = async () => {
     try {
       const initialCounters = books.reduce((acc: { [key: string]: number }, book) => {
-        acc[book.isbn] = 0;
+        acc[book.id] = 0;
         return acc;
       }, {});
       setCounters(initialCounters);
@@ -53,10 +53,10 @@ useEffect(() => {
   initialCounter();
 }, []);
 
-const handleLike = (bookIsbn: string) => {
+const handleLike = (bookId: string) => {
   setCounters((prevCounters: CounterState) => ({
     ...prevCounters,
-    [bookIsbn]: (prevCounters[bookIsbn] || 0) + 1,
+    [bookId]: (prevCounters[bookId] || 0) + 1,
   }));
 };
 
@@ -74,7 +74,7 @@ return (
 
     <div className="bookcontent" >
       {books.map((book) => (
-        <div className="books" key={book.isbn}>
+        <div className="books" key={book.id}>
           <div className="book-content">
             <div className="book-info">
               <h2 className='book-title'>{book.title}</h2>
@@ -92,15 +92,15 @@ return (
                 <p>Kein Bild vorhanden!</p>
               )}
             <div className='likeContainer'>
-              <p className='counter'>{counters[book.isbn] || 0}</p>
+              <p className='counter'>{counters[book.id] || 0}</p>
               <img className='likeImage' src={likebutton} alt='LikeButton'/>
             </div>
             <div className='buttons'> 
               <div className='counterButton'>
-                <button onClick={() => handleLike(book.isbn)}>Like</button>
+                <button onClick={() => handleLike(book.id)}>Like</button>
               </div>
               <div className='detailsButton'>
-                <button onClick={() => navigate(`/bookdetails/${book.isbn}`)}>Details</button>
+                <button onClick={() => navigate(`/bookdetails/${book.id}`)}>Details</button>
               </div> 
               <div className='warenkorbButton'>
                 <button>Warenkorb</button>
