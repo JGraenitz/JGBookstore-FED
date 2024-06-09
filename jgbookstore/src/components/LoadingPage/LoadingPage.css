@@ -1,0 +1,50 @@
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* passt sich an die Höhe zwischen Header und Footer an */
+    text-align: center;
+  }
+  
+  .loading-container h2 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+  }
+  
+  .loading-bar {
+    position: relative;
+    width: 80%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  
+  .loading-bar::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    background-color: #3498db;
+    border-radius: 10px;
+    animation: loading 2s infinite;
+  }
+  
+  @keyframes loading {
+    0% {
+      left: -50%;
+      width: 50%;
+    }
+    50% {
+      left: 25%;
+      width: 50%;
+    }
+    100% {
+      left: 100%;
+      width: 50%;
+    }
+  }

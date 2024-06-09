@@ -1,0 +1,31 @@
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* passt sich an die Höhe zwischen Header und Footer an */
+    text-align: center;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-container h2 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  .error-container .ErrorMessage {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    color: #721c24;
+  }
+  
+  .error-container p {
+    margin: 0;
+    padding: 0;
+  }

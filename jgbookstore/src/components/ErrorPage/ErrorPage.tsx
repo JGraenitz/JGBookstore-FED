@@ -5,9 +5,9 @@ import  ErrorPageProps  from '../../utils/Interfaces/ErrorPageProps'
 
 const ErrorPage: React.FC<ErrorPageProps> = ({ error }) => {
   return (
-    <div>
+    <div className="error-container">
       <h2>Error:</h2>
-      <p className='ErrorMessage'>{error?.message}</p>
+      <p className="ErrorMessage">{error?.message}</p>
     </div>
   );
 };

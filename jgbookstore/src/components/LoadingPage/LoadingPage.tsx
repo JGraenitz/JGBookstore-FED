@@ -4,9 +4,9 @@ import './LoadingPage.css'
 
 const LoadingPage: React.FC = () => {
   return (
-    <div>
+    <div className="loading-container">
       <h2>Loading</h2>
-      <p>.........</p>
+      <div className="loading-bar"></div>
     </div>
   );
 };

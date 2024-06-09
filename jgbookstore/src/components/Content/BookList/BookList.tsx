@@ -71,68 +71,70 @@ return (
     )
     }
     {state === 'success' && (
-
-    <div className="bookcontent" >
-      {books.map((book) => (
-        <div className="books" key={book.id}>
-          <div className="book-content">
-            <div className="book-info">
-              <h2 className='book-title'>{book.title}</h2>
-              <p className='author'>Author: {book.author}</p>
-              <p className='publisher'>Publisher: {book.publisher}</p>
-              <p className='price'>Price: {book.price}</p>
-            </div>
-              {book.cover ? (
-                <img
-                  className='cover'
-                  src={book.cover}
-                  alt={book.title}
-                />
-              ) : (
-                <p>Kein Bild vorhanden!</p>
-              )}
-            <div className='likeContainer'>
-              <p className='counter'>{counters[book.id] || 0}</p>
-              <img className='likeImage' src={likebutton} alt='LikeButton'/>
-            </div>
-            <div className='buttons'> 
-              <div className='counterButton'>
-                <button onClick={() => handleLike(book.id)}>Like</button>
+    <div className='successContent'>
+      <div className="bookcontent" >
+        {books.map((book) => (
+          <div className="books" key={book.id}>
+            <div className="book-content">
+              <div className="book-info">
+                <h2 className='book-title'>{book.title}</h2>
+                <p className='author'>Author: {book.author}</p>
+                <p className='publisher'>Publisher: {book.publisher}</p>
+                <p className='price'>Price: {book.price}</p>
               </div>
-              <div className='detailsButton'>
-                <button onClick={() => navigate(`/bookdetails/${book.id}`)}>Details</button>
-              </div> 
-              <div className='warenkorbButton'>
-                <button>Warenkorb</button>
-              </div> 
+                {book.cover ? (
+                  <img
+                    className='cover'
+                    src={book.cover}
+                    alt={book.title}
+                  />
+                ) : (
+                  <p>Kein Bild vorhanden!</p>
+                )}
+              <div className='likeContainer'>
+                <p className='counter'>{counters[book.id] || 0}</p>
+                <img className='likeImage' src={likebutton} alt='LikeButton'/>
+              </div>
+              <div className='buttons'> 
+                <div className='counterButton'>
+                  <button onClick={() => handleLike(book.id)}>Like</button>
+                </div>
+                <div className='detailsButton'>
+                  <button onClick={() => navigate(`/bookdetails/${book.id}`)}>Details</button>
+                </div> 
+                <div className='warenkorbButton'>
+                  <button>Warenkorb</button>
+                </div> 
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      <div className='pageButtons'>
+        <button className='pageButtonsStyle'
+          disabled={!links.first}
+          onClick={() => links.first && handlePageChange(links.first)}>
+            First
+        </button>
+        <button className='pageButtonsStyle'
+          disabled={!links.prev}
+          onClick={() => links.prev && handlePageChange(links.prev)}>
+            Previous
+        </button>
+        <button className='pageButtonsStyle'
+          disabled={!links.next}
+          onClick={() => links.next && handlePageChange(links.next)}>
+            Next
+        </button>
+        <button className='pageButtonsStyle'
+          disabled={!links.last}
+          onClick={() => links.last && handlePageChange(links.last)}>
+            Last
+        </button>
+    </div>
     </div>
     )}
-    <div className='pageButtons'>
-      <button className='pageButtonsStyle'
-        disabled={!links.first}
-        onClick={() => links.first && handlePageChange(links.first)}>
-          First
-      </button>
-      <button className='pageButtonsStyle'
-        disabled={!links.prev}
-        onClick={() => links.prev && handlePageChange(links.prev)}>
-          Previous
-      </button>
-      <button className='pageButtonsStyle'
-        disabled={!links.next}
-        onClick={() => links.next && handlePageChange(links.next)}>
-          Next
-      </button>
-      <button className='pageButtonsStyle'
-        disabled={!links.last}
-        onClick={() => links.last && handlePageChange(links.last)}>
-          Last
-      </button>
-    </div>
+
   </div>
 );
 };
