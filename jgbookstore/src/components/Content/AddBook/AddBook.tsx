@@ -151,6 +151,7 @@ const AddBook: React.FC = () => {
           </div>
           <div className="addBookButtons">
               <button type="submit">Add Book</button>
+              <button className="cancleButton" onClick={() => navigate("/")}>Cancel</button>
           </div>
       </form>
     </div>

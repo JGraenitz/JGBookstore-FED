@@ -152,7 +152,7 @@ const EditBook: React.FC = () => {
         </div>
         <div className='editBooksButtons'>
             <button type="submit">Edit Book</button>
-            <button onClick={() => navigate('/')}>Cancel</button>
+            <button onClick={() => navigate(`/bookdetails/${book?.id}`)}>Cancel</button>
         </div>
       </form>
     </div>

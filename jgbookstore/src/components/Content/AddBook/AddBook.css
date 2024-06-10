@@ -67,10 +67,11 @@
     background-color: #56684c;
 }
 
-.editBooksButtons button:nth-child(2) {
+.addBookButtons button:nth-child(2), .editBooksButtons button:nth-child(2) {
     background-color: #6c757d;
 }
 
-.editBooksButtons button:nth-child(2):hover {
+.addBookButtons button:nth-child(2):hover, .editBooksButtons button:nth-child(2):hover {
     background-color: #5a6268;
 }
+
