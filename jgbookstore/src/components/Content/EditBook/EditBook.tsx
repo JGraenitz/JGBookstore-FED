@@ -1,6 +1,6 @@
 import React from 'react';
-import * as API from '../../../utils/Scripts/API';
-import  { Book } from '../../../utils/Interfaces/Book'
+import * as API from '../../../utils/scripts/API';
+import  { Book } from '../../../utils/interfaces/Book'
 import { useState, useEffect, ChangeEvent, FormEvent} from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';

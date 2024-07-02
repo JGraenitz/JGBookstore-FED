@@ -1,14 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import Navigation from './components/Navigation/Navigation';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
+import Navigation from './components/navigation/Navigation';
 import Content from './components/Content/Content';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { AuthProvider } from './components/authContext/AuthContext';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { CartProvider } from './components/cartContext/CartProvider';
 
 
+const LoginScreen: React.FC = () => (
+  <>
+    <Header />
+    <Content />
+    <Footer />
+  </>
+);
 
+const LoggedInLayout: React.FC = () => (
+  <>
+    <Navigation />
+    <Header />
+    <Content />
+    <Footer />
+  </>
+);
 
 
 const root = ReactDOM.createRoot(
@@ -16,17 +33,25 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Router>  
-      <Navigation onComponentChange={function (component: String): void {
-        throw new Error('Function not implemented.');
-        } } 
-      />
-      <Header/>
-      <Content/>
-      <Footer/>
-    </Router>
+    <AuthProvider>
+      <CartProvider>
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={<LoginScreen />}
+            />
+            <Route
+              path="/*"
+              element={<LoggedInLayout />}
+            />
+          </Routes>
+        </Router>
+      </CartProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
+
 
 
 //<Navigation onComponentChange={handleComponentChange} />

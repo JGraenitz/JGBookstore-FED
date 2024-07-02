@@ -1,0 +1,15 @@
+.checkout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
+  
+  .checkout-message {
+    text-align: center;
+  }
+  
+  .checkout-message h1 {
+    font-size: 36px;
+    color: #333; /* Optional: Farbe anpassen */
+  }

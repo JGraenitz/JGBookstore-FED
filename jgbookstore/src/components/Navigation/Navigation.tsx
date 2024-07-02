@@ -3,6 +3,8 @@ import './Navigation.css';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logoWarenkorb from '../../images/Warenkorb.png';
+import { useAuth } from '../../components/authContext/AuthContext';
+import CartIcon from '../cartIcon/CartIcon';
 
 
 type onComponentChange = (component:String) => void;
@@ -11,7 +13,7 @@ interface NavigationProps {
   onComponentChange: onComponentChange;
 }
 
-const Navigation = ({ onComponentChange } : NavigationProps) => {
+const Navigation = () => {
   
   
 const openHamMenu = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -27,12 +29,13 @@ const openHamMenu = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 
 
 const navigate = useNavigate();
+const { user } = useAuth();
 
   return (
     <div className="nav">
       <div className="off-screen-menu">
         <ul>
-          <Link to="/about">About</Link>
+          <Link to="/" className="logout-link">Log Out</Link>
         </ul>
       </div>  
     <nav className="navigation">
@@ -45,19 +48,28 @@ const navigate = useNavigate();
           </div>
         </div>
         <div className='navigation_item'>
-            <button className="navigation_button" onClick={() => navigate('/')} >All Books</button>
+            <button className="navigation_button" onClick={() => navigate('/home')} >All Books</button>
         </div>
-        <div className='navigation_item'>
-          <button className="navigation_button" onClick={() => navigate('/add-book')}>Add New Book</button>
-        </div>
+        {user?.role === 'admin' ? (
+          <div className='navigation_item'>
+            <button className="navigation_button" onClick={() => navigate('/add-book')}>Add New Book</button>
+          </div>
+        ) : (
+          <div className='navigation_item'></div>
+        )}
+
         <div className='navigation_item'>
           <button className="navigation_button" onClick={() => navigate('/about')} >About Us</button>
         </div>
       </ul>
     </nav>
+    {user?.role === 'admin' ? (
+        <div className="warenkorb"></div>
+    ) : (
       <div className="warenkorb">
-          <img src={logoWarenkorb} alt="Warenkorb Icon" className="warenkorb-img" />
+          <CartIcon/>
       </div>
+    )}
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import React from 'react';
 import './AddBook.css';
-import * as API from '../../../utils/Scripts/API';
-import  { Book } from '../../../utils/Interfaces/Book'
+import * as API from '../../../utils/scripts/API';
+import  { Book } from '../../../utils/interfaces/Book'
 import { useState, useEffect, ChangeEvent, FormEvent} from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../authContext/AuthContext';
 
 
 
@@ -18,6 +19,8 @@ const AddBook: React.FC = () => {
   });
   
   const [message, setMessage] = useState<string | null>(null);
+
+  const { user } = useAuth();
   
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -37,7 +40,7 @@ const AddBook: React.FC = () => {
         title: '',
         isbn: '',
       });
-      navigate('/')
+      navigate('/home')
     } catch (error) {
       setMessage('Error adding book');
     }
@@ -149,10 +152,16 @@ const AddBook: React.FC = () => {
                   />
               </div>
           </div>
-          <div className="addBookButtons">
-              <button type="submit">Add Book</button>
-              <button className="cancleButton" onClick={() => navigate("/")}>Cancel</button>
-          </div>
+            {user?.role === 'admin' ? (
+                <div className="addBookButtons">
+                    <button type="submit">Add Book</button>
+                    <button className="cancleButton" onClick={() => navigate("/home")}>Cancel</button>
+                </div>
+            ) : (
+                <div className="addBookButtons">
+                    <button className="cancleButton" onClick={() => navigate("/home")}>Cancel</button>
+                </div>
+            )}
       </form>
     </div>
   );

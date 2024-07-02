@@ -1,9 +1,45 @@
 // API.tsx
 
-import { Book } from '../Interfaces/Book';
+import { Book } from '../interfaces/Book';
+
+import { User } from '../interfaces/User';
 
 // Base URL of the API
 const baseURL: string = 'http://localhost:4730';
+
+///////////////////////////////////////// LOGIN FUNCTION ////////////////////////////////////////////////
+
+interface LoginResponse {
+  accessToken: string;
+  user: User;
+};
+
+// Function to perform login
+export const login = async (email: string, password: string): Promise<LoginResponse> => {
+  try {
+    const response = await fetch(`${baseURL}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Network response was not ok: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error logging in:', error);
+    throw error;
+  }
+};
+
+
+/////////////////////////////////////////// BOOK FUNCTION ////////////////////////////////////////////
+
 
 // Function to request all books
 export const reqAllBooks = async (): Promise<Book[]> => {

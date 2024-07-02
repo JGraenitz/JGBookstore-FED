@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Book } from '../../utils/Interfaces/Book';
+import { Book } from './Book';
 
 type FetchState = "initial" | "loading" | "success" | "error";
 

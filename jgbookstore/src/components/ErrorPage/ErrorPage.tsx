@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './ErrorPage.css'
-import  ErrorPageProps  from '../../utils/Interfaces/ErrorPageProps'
+import  ErrorPageProps  from '../../utils/interfaces/ErrorPageProps'
 
 const ErrorPage: React.FC<ErrorPageProps> = ({ error }) => {
   return (
