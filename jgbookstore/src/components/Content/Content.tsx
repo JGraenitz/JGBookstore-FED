@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom';
 import './Content.css';
-import BookList from "./bookList/BookList";
-import AddBook from "./addBook/AddBook";
-import About from "./about/About";
-import BookDetails from "./bookDetails/BookDetails";
-import EditBook from "./editBook/EditBook";
+import BookList from "./BookList/BookList";
+import AddBook from "./AddBook/AddBook";
+import About from "./About/About";
+import BookDetails from "./BookDetails/BookDetails";
+import EditBook from "./EditBook/EditBook";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import LoginPage from "../loginPage/LoginPage";
 import Warenkorb from "../Content/warenkorb/Warenkorb"

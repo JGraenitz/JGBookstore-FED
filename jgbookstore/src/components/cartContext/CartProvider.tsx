@@ -1,6 +1,6 @@
 import React from 'react';
 import { createContext, useContext, useState, useMemo } from 'react';
-import { Book } from '../../utils/interfaces/Book';
+import { Book } from '../../utils/Interfaces/Book';
 
 interface CartContextType {
   cart: CartItem[];

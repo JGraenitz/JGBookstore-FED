@@ -1,11 +1,11 @@
 import React from 'react';
 import './BookList.css';
-import  { Book } from '../../../utils/interfaces/Book'
-import  CounterState   from '../../../utils/interfaces/CounterState'
-import * as API from '../../../utils/scripts/API'
+import  { Book } from '../../../utils/Interfaces/Book'
+import  CounterState   from '../../../utils/Interfaces/CounterState'
+import * as API from '../../../utils/Scripts/API'
 import { useState, useEffect} from 'react';
 import { useBooks } from '../../../domain/hooks'
-import ErrorPage from "../../errorPage/ErrorPage";
+import ErrorPage from "../../ErrorPage/ErrorPage";
 import LoadingPage from '../../LoadingPage/LoadingPage';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';

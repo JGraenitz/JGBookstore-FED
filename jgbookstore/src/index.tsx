@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
-import Navigation from './components/navigation/Navigation';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Navigation from './components/Navigation/Navigation';
 import Content from './components/Content/Content';
 import { AuthProvider } from './components/authContext/AuthContext';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';

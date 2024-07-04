@@ -1,7 +1,7 @@
 import React from 'react';
 import './AddBook.css';
-import * as API from '../../../utils/scripts/API';
-import  { Book } from '../../../utils/interfaces/Book'
+import * as API from '../../../utils/Scripts/API';
+import  { Book } from '../../../utils/Interfaces/Book'
 import { useState, useEffect, ChangeEvent, FormEvent} from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../authContext/AuthContext';

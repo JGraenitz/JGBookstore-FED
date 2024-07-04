@@ -9,3 +9,11 @@
 - install dependencies -> npm install ---or if it doesnt work--> npm install --force -> npm install react-router-dom
 - start bookmonkeyAPI -> bookmonkey-api
 - start npm Server -> npm start ---or if it doesnt work--> npx start
+
+# Admin
+- Email: admin@bookmonkey.api
+- Password: password1!
+
+# Customer 
+- Email: customer@bookmonkey.api
+- Password: password1!

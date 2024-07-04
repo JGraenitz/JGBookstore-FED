@@ -1,8 +1,8 @@
 // API.tsx
 
-import { Book } from '../interfaces/Book';
+import { Book } from '../Interfaces/Book';
 
-import { User } from '../interfaces/User';
+import { User } from '../Interfaces/User';
 
 // Base URL of the API
 const baseURL: string = 'http://localhost:4730';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import { login as loginService} from '../../utils/scripts/API'
+import { login as loginService} from '../../utils/Scripts/API'
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import { useAuth } from '../authContext/AuthContext';
 import './LoginPage.css'
