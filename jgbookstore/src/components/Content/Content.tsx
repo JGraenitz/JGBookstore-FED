@@ -7,9 +7,9 @@ import About from "./About/About";
 import BookDetails from "./BookDetails/BookDetails";
 import EditBook from "./EditBook/EditBook";
 import LoadingPage from "../LoadingPage/LoadingPage";
-import LoginPage from "../loginPage/LoginPage";
-import Warenkorb from "../Content/warenkorb/Warenkorb"
-import Checkout from "../checkout/Checkout";
+import LoginPage from "../LoginPage/LoginPage";
+import Warenkorb from "./Warenkorb/Warenkorb"
+import Checkout from "../Checkout/Checkout";
 
 
 const Content = () => {

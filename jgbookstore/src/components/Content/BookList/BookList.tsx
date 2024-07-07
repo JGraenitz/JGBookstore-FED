@@ -12,8 +12,10 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import likebutton from '../../../images/LikeButton.png'
 import { useAuth } from '../../authContext/AuthContext';
-import { useCart } from '../../cartContext/CartProvider';
+//import { useCart } from '../../cartContext/CartProvider';
 
+import { addToCart, removeFromCart, clearCart, selectCart, selectItemCount, selectTotalAmount } from '../../../redux/cartSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
@@ -21,11 +23,33 @@ const useQuery = () => {
 
 
 
+
+
+
 const BookList = () => {
 
+  ///////////////////////////////////
+const dispatch = useDispatch();
+const cart = useSelector(selectCart);
+const itemCount = useSelector(selectItemCount);
+const totalAmount = useSelector(selectTotalAmount);
+
+const handleAddToCart = (book: Book) => {
+  dispatch(addToCart(book));
+};
+
+const handleRemoveFromCart = (id: string) => {
+  dispatch(removeFromCart(id));
+};
+
+const handleClearCart = () => {
+  dispatch(clearCart());
+};
+
+//////////////////////////////////////
 
 const { user } = useAuth();
-const { addToCart } = useCart();
+//const { addToCart } = useCart();   not REDUX
 
 const [counters, setCounters] = useState<CounterState>({});
 
@@ -68,9 +92,9 @@ const handleLike = (bookId: string) => {
   }));
 };
 
-const handleAddToCart = (book: Book) => {
+/*const handleAddToCart = (book: Book) => {
   addToCart(book); 
-};
+};    not REDUX one */ 
 
 if (!user) {
   return <p>Not authorized</p>;

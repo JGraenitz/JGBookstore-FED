@@ -1,18 +1,40 @@
 import React from 'react';
 import './Warenkorb.css'; 
-import { useCart } from '../../cartContext/CartProvider';
+//import { useCart } from '../../cartContext/CartProvider';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../../redux/store';
+import { removeFromCart, clearCart, selectCart, selectTotalAmount } from '../../../redux/cartSlice';
+
+
 const CartPage: React.FC = () => {
-  const { cart, totalAmount, removeFromCart, clearCart } = useCart();
+  //const { cart, totalAmount, removeFromCart, clearCart } = useCart();
 
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
-  const handleCheckout = () => {
+ /* const handleCheckout = () => {
     clearCart()
     navigate("/checkout")
+  };  without REDUX*/
+
+  const cart = useSelector(selectCart);
+  const totalAmount = useSelector(selectTotalAmount);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleRemoveFromCart = (id: string) => {
+    dispatch(removeFromCart(id));
   };
 
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
+  const handleCheckout = () => {
+    handleClearCart();
+    navigate("/checkout");
+  };
  
 
   return (
@@ -25,7 +47,7 @@ const CartPage: React.FC = () => {
               <span className="item-details">
                 "{cartItem.book.title}" by {cartItem.book.author} - {cartItem.book.price}
               </span>
-              <button onClick={() => removeFromCart(cartItem.id)} className="remove-button">
+              <button onClick={() => handleRemoveFromCart(cartItem.id)} className="remove-button">
                 Entfernen
               </button>
             </li>

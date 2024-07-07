@@ -3,7 +3,7 @@ import './Navigation.css';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logoWarenkorb from '../../images/Warenkorb.png';
-import { useAuth } from '../../components/authContext/AuthContext';
+import { useAuth } from '../authContext/AuthContext';
 import CartIcon from '../cartIcon/CartIcon';
 
 

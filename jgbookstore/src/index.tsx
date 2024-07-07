@@ -7,7 +7,9 @@ import Navigation from './components/Navigation/Navigation';
 import Content from './components/Content/Content';
 import { AuthProvider } from './components/authContext/AuthContext';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import { CartProvider } from './components/cartContext/CartProvider';
+//import { CartProvider } from './components/cartContext/CartProvider';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 
 const LoginScreen: React.FC = () => (
@@ -34,7 +36,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <CartProvider>
+      <Provider store={store}>
         <Router>
           <Routes>
             <Route
@@ -47,7 +49,7 @@ root.render(
             />
           </Routes>
         </Router>
-      </CartProvider>
+      </Provider>
     </AuthProvider>
   </React.StrictMode>
 );
